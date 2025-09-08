@@ -1,0 +1,78 @@
+
+> activepieces@0.66.7 dev
+> concurrently -n "GUI,API,ENG" -c "bgBlue.bold,bgGreen.bold,bgRed.bold" "npm:serve:frontend" "npm:serve:backend" "npm:serve:engine"
+
+[GUI] 
+[GUI] > activepieces@0.66.7 serve:frontend
+[GUI] > nx serve react-ui
+[GUI] 
+[API] 
+[API] > activepieces@0.66.7 serve:backend
+[API] > nx serve server-api
+[API] 
+[ENG] 
+[ENG] > activepieces@0.66.7 serve:engine
+[ENG] > nx serve engine
+[ENG] 
+[ENG] 
+[ENG] > nx run engine:serve
+[ENG] 
+[GUI] 
+[GUI] > nx run react-ui:serve
+[GUI] 
+[GUI] > vite
+[GUI] 
+[API] 
+[API] > nx run server-api:serve
+[API] 
+[GUI] 
+[GUI]   [32m[1mVITE[22m v6.3.5[39m  [2mready in [0m[1m506[22m[2m[0m ms[22m
+[GUI] 
+[GUI]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+[GUI]   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.0.104:[1m4200[22m/[39m
+[ENG] chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 2.19 MiB (javascript) 670 bytes (runtime) [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+[ENG] webpack compiled [1m[32msuccessfully[39m[22m (172a89656c84672a)
+[ENG] [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 0, waiting for changes to restart...[22m
+[API] chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 4.11 MiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+[API] webpack compiled [1m[32msuccessfully[39m[22m (78e2b704a8a758aa)
+[API] [1m[31mDebugger listening on ws://0.0.0.0:9229/0278786d-0bea-4819-b4bd-85bff41036b7[39m[22m
+[API] [1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[API] [1m[31m[39m[22m
+[GUI] 
+[GUI] [41m[30m ERROR [39m[49m
+[GUI] [TypeScript] Found 0 errors. Watching for file changes.
+[GUI] 
+[API] [05:15:30 UTC] [32mINFO[39m (rolesSeed): [36mSeeding roles[39m
+[API] [05:15:30 UTC] [32mINFO[39m (seedDevData): [36mskip: already seeded[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[engineResponseWatcher#init] Initializing engine run watcher[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36mPiece sync service is disabled[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36mArchive job registered[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36mstep files migrated, done[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[setupBullMQBoard] Queue UI is disabled[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36mActivepieces Edition[39m
+[API]     edition: "ce"
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[34mStarting watch for package: google-sheets[36m[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[33mFound piece directory: /Users/vk/Documents/projects/open-source/forks/activepieces/packages/pieces/community/google-sheets[36m[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[34mStarting watch for package: store[36m[39m
+[API] [05:15:31 UTC] [32mINFO[39m: [36m[33mFound piece directory: /Users/vk/Documents/projects/open-source/forks/activepieces/packages/pieces/community/store[36m[39m
+[API] [05:15:31 UTC] [33mWARN[39m: [36m@fastify/reply-from might not behave as expected when used with @fastify/multipart[39m
+[API] [05:15:31 UTC] [31mERROR[39m: [36mlisten EADDRINUSE: address already in use 0.0.0.0:3000[39m
+[API]     err: {
+[API]       "type": "Error",
+[API]       "message": "listen EADDRINUSE: address already in use 0.0.0.0:3000",
+[API]       "stack":
+[API]           Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+[API]               at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+[API]               at listenInCluster (node:net:1997:12)
+[API]               at node:net:2206:7
+[API]               at processTicksAndRejections (node:internal/process/task_queues:90:21)
+[API]       "code": "EADDRINUSE",
+[API]       "errno": -48,
+[API]       "syscall": "listen",
+[API]       "address": "0.0.0.0",
+[API]       "port": 3000
+[API]     }
+[API] [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+[GUI] npm run serve:frontend exited with code SIGTERM
+[API] npm run serve:backend exited with code SIGTERM
+[ENG] npm run serve:engine exited with code SIGTERM

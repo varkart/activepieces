@@ -1,0 +1,63 @@
+{
+  "name": "pieces-agentx",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pieces/community/agentx/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/pieces/community/agentx",
+        "tsConfig": "packages/pieces/community/agentx/tsconfig.lib.json",
+        "packageJson": "packages/pieces/community/agentx/package.json",
+        "main": "packages/pieces/community/agentx/src/index.ts",
+        "assets": [
+          "packages/pieces/community/agentx/*.md",
+          {
+            "input": "packages/pieces/community/agentx/src/i18n",
+            "output": "./src/i18n",
+            "glob": "**/!(i18n.json)"
+          }
+        ],
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "updateBuildableProjectDepsInPackageJson": true
+      },
+      "dependsOn": ["^build"]
+    },
+    "prebuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/pieces/community/agentx",
+        "command": "npm install --production"
+      }
+    },
+    "build-with-deps": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run pieces-agentx:prebuild",
+          "nx run pieces-agentx:build",
+          "nx run pieces-agentx:postbuild"
+        ],
+        "parallel": false
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "dist/packages/pieces/community/agentx",
+        "command": "npm install"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  },
+  "tags": []
+}
